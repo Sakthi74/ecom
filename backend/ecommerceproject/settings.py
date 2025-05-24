@@ -83,8 +83,12 @@ WSGI_APPLICATION = 'ecommerceproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ecom_db',
+        'USER' : 'root',
+        'PASSWORD': 'bhuvanasavithiri',
+        'HOST': 'localhost',
+        'PORT' : '3306'
     }
 }
 CORS_ALLOWED_ORIGINS = [

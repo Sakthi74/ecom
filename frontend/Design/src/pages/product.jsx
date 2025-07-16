@@ -8,11 +8,11 @@ const Product = () => {
     async function fetchProducts() {
       try {
         const response = await axios.get('http://127.0.0.1:8000/products/');
-        console.log('Fetched data:', response.data);  // 🧪 See actual response
+        console.log('Fetched data:', response.data);  
         const data = response.data;
         setProducts(Array.isArray(data) ? data : [data]);
       } catch (error) {
-        console.error('Error fetching products:', error); // 🧪 Shows error if backend fails
+        console.error('Error fetching products:', error); 
       }
     }
 
@@ -22,7 +22,7 @@ const Product = () => {
   const handleDelete = (id) => {
   axios.delete(`http://127.0.0.1:8000/products/${id}/`)
     .then(() => {
-      // Only update state after the backend confirms deletion
+      
       setProducts(products.filter(product => product.id !== id));
     })
     .catch((error) => {
@@ -53,6 +53,7 @@ const Product = () => {
               <td className="border px-4 py-2">{product.name}</td>
               <td className="border px-4 py-2">{product.price}</td>
               <td className="border px-4 py-2">{ product.descripion}</td>
+               <td className="border   py-2 flex justify-center"><img src={product.image} className='size-[200px]'></img></td>
               
          <td  className=' border px-4 py-2'><button className=' bg-red-400 
          rounded-sm cursor-pointer  hover:bg-blue-600 hover:text-white border-2 border-black' onClick={()=>handleDelete(product.id)}>DELETE ITEM<h1><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
